@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvlhwa50kv28"]
+
+[ext_resource type="Texture2D" uid="uid://bbfbxw6cvhovx" path="res://player/speed_line.png" id="1_prdnn"]
+[ext_resource type="Script" path="res://player/speed_line.gd" id="2_tvy0c"]
+
+[node name="SpeedLine" type="Sprite2D"]
+scale = Vector2(2, 1)
+texture = ExtResource("1_prdnn")
+offset = Vector2(-215.665, 0)
+script = ExtResource("2_tvy0c")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://clkxo70bx051v"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_dhhur"]
+[ext_resource type="PackedScene" uid="uid://bdajccikmxwq4" path="res://player/player.tscn" id="1_quy4l"]
+[ext_resource type="PackedScene" uid="uid://cv1ma1a31dh7q" path="res://road/road_builder.tscn" id="2_rdyxs"]
+[ext_resource type="PackedScene" uid="uid://caatvbopisycf" path="res://player/speed_lines.tscn" id="4_chrby"]
+[ext_resource type="PackedScene" uid="uid://wskuatnql51o" path="res://music/music_player.tscn" id="5_wcfvb"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(151, 586)
+script = ExtResource("1_dhhur")
+player = NodePath("../Randy")
+
+[node name="Randy" parent="." instance=ExtResource("1_quy4l")]
+position = Vector2(151, 586)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Randy"]
+remote_path = NodePath("../../SpeedLines")
+update_rotation = false
+
+[node name="RoadBuilder" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_rdyxs")]
+position = Vector2(137, 681)
+player = NodePath("../Randy")
+
+[node name="SpeedLines" parent="." node_paths=PackedStringArray("player", "camera") instance=ExtResource("4_chrby")]
+position = Vector2(151, 586)
+player = NodePath("../Randy")
+camera = NodePath("../Camera2D")
+
+[node name="MusicPlayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_wcfvb")]
+player = NodePath("../Randy")

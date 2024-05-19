@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://caatvbopisycf"]
+
+[ext_resource type="Script" path="res://player/speed_lines.gd" id="2_76fdk"]
+[ext_resource type="PackedScene" uid="uid://buvlhwa50kv28" path="res://player/speed_line.tscn" id="2_m0mvl"]
+
+[node name="SpeedLines" type="Node2D"]
+script = ExtResource("2_76fdk")
+speed_line_scene = ExtResource("2_m0mvl")

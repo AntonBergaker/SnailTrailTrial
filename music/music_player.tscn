@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wskuatnql51o"]
+
+[ext_resource type="Script" path="res://music/music_player.gd" id="1_ylur0"]
+[ext_resource type="AudioStream" uid="uid://bktwgggmnpiiy" path="res://music/deja cut.ogg" id="2_cjua2"]
+
+[node name="MusicPlayer" type="Node" node_paths=PackedStringArray("audio_streams")]
+script = ExtResource("1_ylur0")
+audio_streams = [NodePath("AudioStreamPlayer"), NodePath("AudioStreamPlayer2")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cjua2")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cjua2")

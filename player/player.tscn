@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdajccikmxwq4"]
+
+[ext_resource type="Texture2D" uid="uid://r6x0x2761pye" path="res://player/randy.png" id="1_ne4dm"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_s4wis"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akox0"]
+radius = 16.0
+height = 152.0
+
+[node name="Player" type="RigidBody2D"]
+linear_damp = 1.0
+angular_damp = 0.5
+script = ExtResource("1_s4wis")
+normie_speed = 10000.0
+speed = 200000.0
+rotate_speed = 200000.0
+
+[node name="Randy" type="Sprite2D" parent="."]
+position = Vector2(6, -7)
+texture = ExtResource("1_ne4dm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_akox0")

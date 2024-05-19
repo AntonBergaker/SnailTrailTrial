@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d5nupghw01kk"]
+
+[ext_resource type="Texture2D" uid="uid://6xw7tcrik77l" path="res://road/road_piece.png" id="1_mom2e"]
+[ext_resource type="Texture2D" uid="uid://dugynokse6b88" path="res://road/road_line.png" id="2_jlrwu"]
+[ext_resource type="Script" path="res://road/road_piece.gd" id="2_q0a1p"]
+[ext_resource type="PackedScene" uid="uid://hrqwcd83w8n1" path="res://road/road_railing.tscn" id="3_d2t4j"]
+
+[node name="RoadPiece" type="Sprite2D" node_paths=PackedStringArray("railing_r", "railing_l")]
+texture = ExtResource("1_mom2e")
+script = ExtResource("2_q0a1p")
+railing_r = NodePath("RoadRailingR")
+railing_l = NodePath("RoadRailingL")
+
+[node name="RoadLine" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_jlrwu")
+
+[node name="RoadRailingL" parent="." instance=ExtResource("3_d2t4j")]
+position = Vector2(-1081, -488)
+
+[node name="RoadRailingR" parent="." instance=ExtResource("3_d2t4j")]
+position = Vector2(1093, -479)
+
+[node name="Barrier" parent="RoadRailingR" index="0"]
+position = Vector2(41, 491)
+scale = Vector2(-1, 1)
+
+[editable path="RoadRailingR"]
