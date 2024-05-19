@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://h0od8b64g0h7"]
+
+[ext_resource type="FontFile" uid="uid://dx36nr5bso840" path="res://hud/ComicNeue-Bold.ttf" id="1_vo8jg"]
+
+[resource]
+default_font = ExtResource("1_vo8jg")
+default_font_size = 50

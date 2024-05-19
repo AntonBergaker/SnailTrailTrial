@@ -13,7 +13,7 @@ func _ready():
 func _process(_delta):
 	var intensity = clamp(player.intensity*0.05, 0, 1.5)
 
-	for i in range(intensity*3):
+	for i in range(randf()*0.3 + intensity*3):
 		var line := speed_line_scene.instantiate() as SpeedLine
 		
 		var dir = randf() * TAU

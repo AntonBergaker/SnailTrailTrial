@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://leybpkqwi5ho"]
+
+[ext_resource type="Script" path="res://hud/hud.gd" id="1_r3fdx"]
+[ext_resource type="Theme" uid="uid://h0od8b64g0h7" path="res://hud/theme.tres" id="2_s7ue6"]
+
+[node name="Hud" type="CanvasLayer" node_paths=PackedStringArray("distance_label", "time_label", "win_label", "controls_label", "boost_label")]
+script = ExtResource("1_r3fdx")
+distance_label = NodePath("Control/Distance")
+time_label = NodePath("Control/Time")
+win_label = NodePath("Label")
+controls_label = NodePath("Controls Label")
+boost_label = NodePath("Space Label")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s7ue6")
+
+[node name="Distance" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -311.0
+offset_top = -85.0
+offset_right = -27.0
+offset_bottom = -27.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "25.0km to go"
+horizontal_alignment = 2
+
+[node name="Time" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -132.0
+offset_right = -26.0
+offset_bottom = -74.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0:00.0"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -68.5
+offset_right = 205.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "You win!"
+horizontal_alignment = 1
+
+[node name="Controls Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -68.5
+offset_right = 205.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Use WASD to move"
+
+[node name="Space Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -68.5
+offset_right = 205.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Use SPACE to boost"

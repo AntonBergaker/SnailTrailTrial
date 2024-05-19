@@ -3,6 +3,16 @@ class_name RoadPiece
 
 @export var railing_r: StaticBody2D
 @export var railing_l: StaticBody2D
+@export var back_railing: StaticBody2D
+
+func _ready():
+	remove_child(back_railing)
+
+func block_back():
+	add_child(back_railing)
+
+func _exit_tree():
+	back_railing.queue_free()
 
 func connect_road(road: RoadPiece):
 	connect_railing(railing_r, road.railing_r)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://doqaxkx3nypqw" path="res://road/barrier.png" id="1_v5rt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep4ha"]
-size = Vector2(20, 1004)
+size = Vector2(155, 1004)
 
 [node name="RoadRailing" type="StaticBody2D"]
 
@@ -12,5 +12,5 @@ position = Vector2(-41, 489)
 texture = ExtResource("1_v5rt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 492)
+position = Vector2(-67.5, 492)
 shape = SubResource("RectangleShape2D_ep4ha")

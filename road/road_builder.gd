@@ -1,4 +1,5 @@
 extends Node2D
+class_name RoadBuilder
 
 @export var road_base: PackedScene
 
@@ -6,7 +7,11 @@ extends Node2D
 
 @export var player: Player
 
+var distance_traveled := 0.0
+var last_distance := 0.0
+
 var last : Vector2
+var last_normal: Vector2 = Vector2(0, -1)
 var index := 0
 
 var road_segments: Array[RoadPiece]
@@ -18,24 +23,37 @@ func _ready():
 	noise = FastNoiseLite.new()
 	road_segments = []
 
-	for i in range(1, 10):
+	for i in range(15):
 		generate()
+	
+	road_segments[0].block_back()
 
 func _process(_delta):
 	var last_road := road_segments[-1]
-	if is_instance_valid(last_road) && last_road.position.distance_to(player.position) < 5000:
+	
+	var player_distance := last_road.position.distance_to(player.position)
+
+	distance_traveled += last_distance - player_distance
+	last_distance = player_distance
+
+	if is_instance_valid(last_road) && player_distance < 5000:
 		generate()
 		var first_road = road_segments.pop_front()
 		first_road.queue_free()
+		road_segments[0].block_back()
 
 
 func generate():
 	var noise_power := noise.get_noise_1d(index*5)
-	var target = last + Vector2(noise_power, -1).normalized() * 950;
+	var normal = Vector2(noise_power * (1 + index/300.0), -1).normalized()
 
+	var normal_diff = normal - last_normal
+
+	var target = last + normal * lerp(950, 650, normal_diff.length());
+
+	var expect_rot := normal.angle() + TAU/4
 	var mid = (last + target) / 2
 	var base_object := road_base.instantiate() as RoadPiece;
-	var expect_rot := mid.angle_to_point(target) + TAU/4
 
 	base_object.position = mid
 	base_object.rotation = expect_rot
@@ -56,3 +74,6 @@ func generate():
 	road_segments.push_back(base_object)
 	index += 1
 	last = target
+	last_normal = normal
+
+	last_distance = base_object.position.distance_to(player.position)
