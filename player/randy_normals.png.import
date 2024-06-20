@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db46sips0m5rf"
-path="res://.godot/imported/randy_helmet.png-37405ef8f913bbaaf6794d6a1ed41970.ctex"
+uid="uid://c70sroa3l771t"
+path="res://.godot/imported/randy_normals.png-a7972c823aa8bf154dc67779fada0788.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/randy_helmet.png"
-dest_files=["res://.godot/imported/randy_helmet.png-37405ef8f913bbaaf6794d6a1ed41970.ctex"]
+source_file="res://player/randy_normals.png"
+dest_files=["res://.godot/imported/randy_normals.png-a7972c823aa8bf154dc67779fada0788.ctex"]
 
 [params]
 

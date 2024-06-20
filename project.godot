@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GottaGoFast"
+config/name="Snail Trail Trial"
 run/main_scene="res://map.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/image="res://player/randy.png"
-config/icon="res://icon.svg"
+config/icon="res://player/randy.png"
 
 [display]
 

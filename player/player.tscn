@@ -1,17 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdajccikmxwq4"]
+[gd_scene load_steps=11 format=3 uid="uid://bdajccikmxwq4"]
 
-[ext_resource type="Texture2D" uid="uid://r6x0x2761pye" path="res://player/randy.png" id="1_ne4dm"]
+[ext_resource type="Texture2D" uid="uid://etyryb828c6g" path="res://player/randy.png" id="1_ne4dm"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_s4wis"]
-[ext_resource type="Shader" path="res://player/lit_shader.gdshader" id="2_vpq1r"]
+[ext_resource type="Material" uid="uid://6ag5dp4rmvqg" path="res://player/randy_material.tres" id="2_nieov"]
 [ext_resource type="Texture2D" uid="uid://d3dlrcrgihph7" path="res://player/fire_particle.png" id="3_6pvky"]
+[ext_resource type="Texture2D" uid="uid://c70sroa3l771t" path="res://player/randy_normals.png" id="4_yu6gy"]
 [ext_resource type="AudioStream" uid="uid://bmohtcpqvy50d" path="res://player/car_engine.wav" id="5_k6myq"]
 [ext_resource type="AudioStream" uid="uid://bw8gwjec1hdth" path="res://player/car_start.wav" id="6_ubefc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_08qu2"]
-shader = ExtResource("2_vpq1r")
-shader_parameter/global_light_normal = Vector3(0.52, -0.78, 0.343)
-shader_parameter/global_light_color = Color(1, 1, 1, 1)
-shader_parameter/global_light_strength = 1.0
+[sub_resource type="CanvasTexture" id="CanvasTexture_086l0"]
+diffuse_texture = ExtResource("1_ne4dm")
+normal_texture = ExtResource("4_yu6gy")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_akox0"]
 radius = 16.0
@@ -36,9 +35,9 @@ engine_sound = NodePath("EngineSound")
 engine_start_sound = NodePath("EngineStart")
 
 [node name="Randy" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_08qu2")
+material = ExtResource("2_nieov")
 position = Vector2(6, -7)
-texture = ExtResource("1_ne4dm")
+texture = SubResource("CanvasTexture_086l0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_akox0")

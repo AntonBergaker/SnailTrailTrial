@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://6ag5dp4rmvqg"]
+
+[ext_resource type="Shader" path="res://player/lit_shader.gdshader" id="1_rbo35"]
+
+[resource]
+shader = ExtResource("1_rbo35")
+shader_parameter/global_light_normal = Vector3(0.52, -0.78, 0.568)
+shader_parameter/global_light_color = Color(1, 1, 1, 1)
+shader_parameter/global_light_strength = 0.35
